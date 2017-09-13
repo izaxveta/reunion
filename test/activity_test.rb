@@ -26,6 +26,13 @@ class ActivityTest < Minitest::Test
     assert_equal 50, playdate.bills[0]
   end
 
+  def test_can_add_participants
+    playdate.add_participant("Lola", 60)
+    assert_equal ["Cereza", "Sandra", "Lola"], playdate.names
+    assert_equal [50, 40, 60], playdate.bills
+    assert_equal 150, playdate.total_tab
+  end
+
   def test_can_access_total_bill
     assert_equal 90, playdate.total_tab
   end
